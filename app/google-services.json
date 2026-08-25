@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "466962833688",
+    "project_id": "pastillapp-42d9d",
+    "storage_bucket": "pastillapp-42d9d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466962833688:android:a38c8ded0acf3ea4c13e6d",
+        "android_client_info": {
+          "package_name": "udb.edu.sv.dsm.pastillapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD62sYEXRPn1BqH6B_bsAT8wU6wKfMMonM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

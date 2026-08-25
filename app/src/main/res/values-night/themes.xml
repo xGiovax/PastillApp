@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores para modo oscuro -->
+    <color name="screen_background">#121212</color>
+    <color name="title_text_color">#FFFFFF</color>
+    <color name="input_text_color">#FFFFFF</color>
+    <color name="input_hint_color">#AAA6B0</color>
+    <color name="input_background">#1E1E1E</color>
+</resources>
