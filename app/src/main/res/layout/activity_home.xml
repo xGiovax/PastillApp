@@ -1,187 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E3E1D5"
-    android:fillViewport="true">
+    android:background="#E7E5DF"
+    tools:context=".HomeActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
-        android:paddingTop="48dp">
-
-        <!-- Encabezado -->
-        <TextView
-            android:id="@+id/tvWelcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hola usuario!"
-            android:textColor="#333333"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvDateTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:gravity="end"
-            android:text="05/01/2026\n11:33 AM"
-            android:textColor="#333333"
-            android:textSize="16sp" />
-
-        <!-- Próxima Medicina -->
-        <TextView
-            android:id="@+id/tvNextMedTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvDateTime"
-            android:layout_marginTop="20dp"
-            android:text="Próxima medicina"
-            android:textColor="#333333"
-            android:textSize="18sp" />
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:id="@+id/cardNextMed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvNextMedTitle"
-            android:layout_marginTop="8dp"
-            android:background="#CCCCCC"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp">
 
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="#E0E0E0"
-                android:gravity="center"
-                android:text="foto"
-                android:textColor="#666666" />
-
+            <!-- Encabezado Minimalista con Ícono + Texto de Logout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvGreeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¡Hola!"
+                        android:textColor="#2D4D3A"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <!-- Ícono de salida + Texto "Cerrar sesión" alineados -->
+                    <LinearLayout
+                        android:id="@+id/btnLogout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="2dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:contentDescription="Cerrar sesión"
+                            android:src="@android:drawable/ic_lock_power_off"
+                            app:tint="#882D4D3A" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="Cerrar sesión"
+                            android:textColor="#882D4D3A"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tvDateTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nombre: Loratadina"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Dosis: C/8 horas"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Hora de dosis: 7:00 pm"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Tomas del Día -->
-        <TextView
-            android:id="@+id/tvDailyTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/cardNextMed"
-            android:layout_marginTop="20dp"
-            android:text="Tomas del día"
-            android:textColor="#333333"
-            android:textSize="18sp" />
-
-        <TableLayout
-            android:id="@+id/tableDaily"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvDailyTitle"
-            android:layout_marginTop="8dp"
-            android:background="#CCCCCC"
-            android:padding="8dp"
-            android:stretchColumns="*">
-
-            <TableRow>
-                <TextView android:padding="8dp" android:text="Nombre" android:textStyle="bold" />
-                <TextView android:padding="8dp" android:text="Tomado" android:textStyle="bold" />
-                <TextView android:padding="8dp" android:text="Pendiente" android:textStyle="bold" />
-                <TextView android:padding="8dp" android:text="Omitido" android:textStyle="bold" />
-            </TableRow>
-            <!-- Filas dinámicas -->
-        </TableLayout>
-
-        <!-- Medicinas con pocas cantidades y Botón Agregar -->
-        <TextView
-            android:id="@+id/tvLowStockTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tableDaily"
-            android:layout_marginTop="20dp"
-            android:text="Medicinas con pocas cantidades"
-            android:textColor="#333333"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvLowStockTitle"
-            android:layout_marginTop="8dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="120dp"
-                android:layout_weight="1"
-                android:background="#CCCCCC"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="⚠️ 2 pastillas restantes"
-                    android:textColor="#000000" />
+                    android:gravity="end"
+                    android:text="00/00/0000\n00:00 AM"
+                    android:textColor="#2D4D3A"
+                    android:textSize="13sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <!-- Sección: Próxima medicina -->
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_marginTop="20dp"
+                android:text="Próxima medicina"
+                android:textColor="#2D4D3A"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="#D3D2CC"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Agregar\nmedicamento"
-                    android:textColor="#333333" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
-                <ImageButton
-                    android:id="@+id/btnAddMed"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/circle_background"
-                    android:contentDescription="Agregar"
-                    android:src="@android:drawable/ic_input_add" />
+                    <ImageView
+                        android:id="@+id/ivMedPhoto"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="#E0E0E0"
+                        android:contentDescription="Foto medicina"
+                        android:scaleType="centerInside"
+                        android:src="@android:drawable/ic_menu_camera" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvMedName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nombre: Loratadina"
+                            android:textColor="#1C1B1F"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvMedDose"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Dosis: C/8 horas"
+                            android:textColor="#1C1B1F"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvMedTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Hora de dosis: 7:00 pm"
+                            android:textColor="#1C1B1F"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Sección: Tomas del día -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Tomas del día"
+                android:textColor="#2D4D3A"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="#D3D2CC"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Tabla de tomas del día"
+                        android:textColor="#666666" />
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Fila Inferior: Pocas Cantidades + Agregar Medicamento -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <!-- Columna Izquierda -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        android:text="Medicinas con\npocas cantidades"
+                        android:textColor="#2D4D3A"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_marginTop="8dp"
+                        app:cardBackgroundColor="#D3D2CC"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:src="@android:drawable/stat_sys_warning"
+                                app:tint="#666666" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center"
+                                android:text="2 pastillas\nrestantes"
+                                android:textColor="#1C1B1F"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!-- Columna Derecha -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        android:text="Agregar\nmedicamento"
+                        android:textColor="#2D4D3A"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_marginTop="8dp"
+                        app:cardBackgroundColor="#D3D2CC"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/btnAddMedicine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="Agregar medicina"
+                            android:src="@android:drawable/ic_input_add"
+                            app:backgroundTint="#B0AFAB"
+                            app:elevation="0dp"
+                            app:fabCustomSize="56dp"
+                            app:maxImageSize="28dp"
+                            app:tint="#2D4D3A" />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
-    </RelativeLayout>
-</ScrollView>
+    </ScrollView>
+
+    <!-- Navegación Inferior -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#D1CFCE"
+        app:itemIconTint="#2D4D3A"
+        app:itemTextColor="#2D4D3A"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/botton_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
