@@ -1,39 +1,187 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#E3E1D5" android:fillViewport="true">
-<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="16dp" android:paddingEnd="16dp" android:paddingBottom="16dp" android:paddingTop="48dp">
-<!--  Encabezado  -->
-<TextView android:id="@+id/tvWelcome" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hola usuario!" android:textColor="#333333" android:textSize="20sp" android:textStyle="bold"/>
-<TextView android:id="@+id/tvDateTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:gravity="end" android:text="05/01/2026\n11:33 AM" android:textColor="#333333" android:textSize="16sp"/>
-<!--  Próxima Medicina  -->
-<TextView android:id="@+id/tvNextMedTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/tvDateTime" android:layout_marginTop="20dp" android:text="Próxima medicina" android:textColor="#333333" android:textSize="18sp"/>
-<LinearLayout android:id="@+id/cardNextMed" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/tvNextMedTitle" android:layout_marginTop="8dp" android:background="#CCCCCC" android:orientation="horizontal" android:padding="16dp">
-<TextView android:layout_width="80dp" android:layout_height="80dp" android:background="#E0E0E0" android:gravity="center" android:text="foto" android:textColor="#666666"/>
-<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:orientation="vertical">
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nombre: Loratadina" android:textColor="#000000" android:textSize="16sp"/>
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Dosis: C/8 horas" android:textColor="#000000" android:textSize="16sp"/>
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Hora de dosis: 7:00 pm" android:textColor="#000000" android:textSize="16sp"/>
-</LinearLayout>
-</LinearLayout>
-<!--  Tomas del Día  -->
-<TextView android:id="@+id/tvDailyTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/cardNextMed" android:layout_marginTop="20dp" android:text="Tomas del día" android:textColor="#333333" android:textSize="18sp"/>
-<TableLayout android:id="@+id/tableDaily" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/tvDailyTitle" android:layout_marginTop="8dp" android:background="#CCCCCC" android:padding="8dp" android:stretchColumns="*">
-<TableRow>
-<TextView android:padding="8dp" android:text="Nombre" android:textStyle="bold"/>
-<TextView android:padding="8dp" android:text="Tomado" android:textStyle="bold"/>
-<TextView android:padding="8dp" android:text="Pendiente" android:textStyle="bold"/>
-<TextView android:padding="8dp" android:text="Omitido" android:textStyle="bold"/>
-</TableRow>
-<!--  Filas dinámicas  -->
-</TableLayout>
-<!--  Medicinas con pocas cantidades y Botón Agregar  -->
-<TextView android:id="@+id/tvLowStockTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/tableDaily" android:layout_marginTop="20dp" android:text="Medicinas con pocas cantidades" android:textColor="#333333" android:textSize="18sp"/>
-<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/tvLowStockTitle" android:layout_marginTop="8dp" android:gravity="center_vertical" android:orientation="horizontal">
-<LinearLayout android:layout_width="0dp" android:layout_height="120dp" android:layout_weight="1" android:background="#CCCCCC" android:gravity="center" android:orientation="vertical" android:padding="8dp">
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⚠️ 2 pastillas restantes" android:textColor="#000000"/>
-</LinearLayout>
-<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:gravity="center" android:orientation="vertical">
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center" android:text="Agregar\nmedicamento" android:textColor="#333333"/>
-<ImageButton android:id="@+id/btnAddMed" android:layout_width="56dp" android:layout_height="56dp" android:layout_marginTop="8dp" android:background="@drawable/circle_background" android:contentDescription="Agregar" android:src="@android:drawable/ic_input_add"/>
-</LinearLayout>
-</LinearLayout>
-</RelativeLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3E1D5"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="48dp">
+
+        <!-- Encabezado -->
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hola usuario!"
+            android:textColor="#333333"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"
+            android:text="05/01/2026\n11:33 AM"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <!-- Próxima Medicina -->
+        <TextView
+            android:id="@+id/tvNextMedTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDateTime"
+            android:layout_marginTop="20dp"
+            android:text="Próxima medicina"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/cardNextMed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNextMedTitle"
+            android:layout_marginTop="8dp"
+            android:background="#CCCCCC"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#E0E0E0"
+                android:gravity="center"
+                android:text="foto"
+                android:textColor="#666666" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre: Loratadina"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Dosis: C/8 horas"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Hora de dosis: 7:00 pm"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Tomas del Día -->
+        <TextView
+            android:id="@+id/tvDailyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardNextMed"
+            android:layout_marginTop="20dp"
+            android:text="Tomas del día"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+
+        <TableLayout
+            android:id="@+id/tableDaily"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDailyTitle"
+            android:layout_marginTop="8dp"
+            android:background="#CCCCCC"
+            android:padding="8dp"
+            android:stretchColumns="*">
+
+            <TableRow>
+                <TextView android:padding="8dp" android:text="Nombre" android:textStyle="bold" />
+                <TextView android:padding="8dp" android:text="Tomado" android:textStyle="bold" />
+                <TextView android:padding="8dp" android:text="Pendiente" android:textStyle="bold" />
+                <TextView android:padding="8dp" android:text="Omitido" android:textStyle="bold" />
+            </TableRow>
+            <!-- Filas dinámicas -->
+        </TableLayout>
+
+        <!-- Medicinas con pocas cantidades y Botón Agregar -->
+        <TextView
+            android:id="@+id/tvLowStockTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tableDaily"
+            android:layout_marginTop="20dp"
+            android:text="Medicinas con pocas cantidades"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvLowStockTitle"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:background="#CCCCCC"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚠️ 2 pastillas restantes"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Agregar\nmedicamento"
+                    android:textColor="#333333" />
+
+                <ImageButton
+                    android:id="@+id/btnAddMed"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/circle_background"
+                    android:contentDescription="Agregar"
+                    android:src="@android:drawable/ic_input_add" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
