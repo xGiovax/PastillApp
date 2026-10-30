@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Pill.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Pill.BottomSheet</item>
+    </style>
+
+    <style name="Pill.BottomSheet" parent="Widget.Material3.BottomSheet">
+        <item name="backgroundTint">@color/pill_bg</item>
+    </style>
+
+    <!-- Botón con borde verde; relleno verde cuando está seleccionado (1,2,3,4 / Indefinido / Por días) -->
+    <style name="Pill.OutlinedChip" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="backgroundTint">@color/chip_bg</item>
+        <item name="strokeColor">@color/pill_green</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minHeight">44dp</item>
+    </style>
+</resources>

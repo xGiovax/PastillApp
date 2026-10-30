@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Se aplica a TODAS las barras inferiores desde themes.xml (bottomNavigationStyle) -->
+    <style name="Pill.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">#D1CFCE</item>
+        <item name="backgroundTint">#D1CFCE</item>
+        <item name="itemIconTint">#2D4D3A</item>
+        <item name="itemTextColor">#2D4D3A</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemActiveIndicatorStyle">@style/Pill.NavIndicator</item>
+        <item name="itemTextAppearanceActive">@style/Pill.NavLabel</item>
+        <item name="itemTextAppearanceInactive">@style/Pill.NavLabel</item>
+    </style>
+
+    <style name="Pill.NavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">#B9CDBE</item>
+    </style>
+
+    <style name="Pill.NavLabel" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">10.5sp</item>
+    </style>
+</resources>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pill_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/pill_green"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:navigationIconTint="@android:color/white"
+        app:title="Frecuencia y horario"
+        app:titleTextColor="@android:color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Los 3 modos -->
+            <LinearLayout
+                android:id="@+id/llModos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <!-- ============ MODO 1: HORAS FIJAS ============ -->
+            <LinearLayout
+                android:id="@+id/containerFijas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Pill.Label"
+                    android:layout_marginTop="8dp"
+                    android:text="Veces al día" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnVez1"
+                        style="@style/Pill.OutlinedChip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="1" />
+
+                    <Button
+                        android:id="@+id/btnVez2"
+                        style="@style/Pill.OutlinedChip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="2" />
+
+                    <Button
+                        android:id="@+id/btnVez3"
+                        style="@style/Pill.OutlinedChip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="3" />
+
+                    <Button
+                        android:id="@+id/btnVez4"
+                        style="@style/Pill.OutlinedChip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="4" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Pill.Label"
+                    android:text="Horarios" />
+
+                <LinearLayout
+                    android:id="@+id/llHorarios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <TextView
+                    style="@style/Pill.Label"
+                    android:text="Días de la semana" />
+
+                <LinearLayout
+                    android:id="@+id/llDias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+
+                <TextView
+                    style="@style/Pill.Label"
+                    android:text="Duración del tratamiento" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnIndefinido"
+                        style="@style/Pill.OutlinedChip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="Indefinido" />
+
+                    <Button
+                        android:id="@+id/btnPorDias"
+                        style="@style/Pill.OutlinedChip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Por días" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etDiasTratamiento"
+                    style="@style/Pill.Field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="¿Cuántos días? Ej. 7"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- ============ MODO 2: CADA CIERTO NÚMERO DE HORAS ============ -->
+            <LinearLayout
+                android:id="@+id/containerCada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/Pill.Label"
+                    android:layout_marginTop="8dp"
+                    android:text="Repetir cada" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etRepetirCada"
+                        style="@style/Pill.Field"
+                        android:layout_width="72dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint="8"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="horas"
+                        android:textColor="@color/pill_green"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Pill.Label"
+                    android:text="Primera toma del día" />
+
+                <LinearLayout
+                    android:id="@+id/llPrimeraToma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <TextView
+                    style="@style/Pill.Label"
+                    android:layout_marginBottom="2dp"
+                    android:text="Horarios generados" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="La app calcula automáticamente los horarios del día"
+                    android:textColor="#1C1B1F"
+                    android:textSize="11sp" />
+
+                <LinearLayout
+                    android:id="@+id/llGenerados"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <!-- ============ MODO 3: SEGÚN NECESIDAD ============ -->
+            <LinearLayout
+                android:id="@+id/containerNecesidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="Sin alarmas"
+                    android:src="@drawable/ic_bell_off" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="Este medicamento no tendrá alarmas ni horarios fijos."
+                    android:textColor="@color/pill_green"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="Podrás registrar la toma manualmente cuando lo necesites, desde la pantalla principal"
+                    android:textColor="#1C1B1F"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:gravity="center"
+                    android:text="Dosis máxima recomendada al día (opcional)"
+                    android:textColor="@color/pill_green"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etDosisMaxima"
+                        style="@style/Pill.Field"
+                        android:layout_width="72dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint="4"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="tomas por día"
+                        android:textColor="@color/pill_green"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="Si se excede, la app mostrará una advertencia al registrar la toma"
+                    android:textColor="#1C1B1F"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Tarjeta verde: Recordatorio previo (modos 1 y 2) / Tiempo mínimo entre tomas (modo 3) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardAccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/pill_green"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:importantForAccessibility="no"
+                                android:src="@android:drawable/ic_menu_recent_history"
+                                app:tint="@android:color/white" />
+
+                            <TextView
+                                android:id="@+id/tvCardTitulo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvCardSubtitulo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="&gt;"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:id="@+id/btnGuardarHorario"
+                style="@style/Pill.ToggleButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/pill_green"
+                android:text="Guardar horario"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

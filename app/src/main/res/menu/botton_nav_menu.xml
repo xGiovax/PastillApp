@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_reportes"
-        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:icon="@drawable/ic_nav_reportes"
         android:title="Reportes" />
     <item
         android:id="@+id/nav_calendario"
-        android:icon="@android:drawable/ic_menu_month"
+        android:icon="@drawable/ic_nav_calendario"
         android:title="Calendario" />
     <item
         android:id="@+id/nav_inicio"
-        android:icon="@android:drawable/ic_menu_myplaces"
+        android:icon="@drawable/ic_nav_inicio"
         android:title="Inicio" />
     <item
         android:id="@+id/nav_medicamentos"
-        android:icon="@android:drawable/ic_menu_manage"
+        android:icon="@drawable/ic_nav_medicamentos"
         android:title="Medicamentos" />
     <item
         android:id="@+id/nav_config"
-        android:icon="@android:drawable/ic_menu_preferences"
+        android:icon="@drawable/ic_nav_config"
         android:title="Config" />
 </menu>

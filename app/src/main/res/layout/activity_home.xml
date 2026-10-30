@@ -115,17 +115,18 @@
 
                     <ImageView
                         android:id="@+id/ivMedPhoto"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
                         android:background="#E0E0E0"
                         android:contentDescription="Foto medicina"
                         android:scaleType="centerInside"
                         android:src="@android:drawable/ic_menu_camera" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
@@ -141,7 +142,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Dosis: C/8 horas"
+                            android:text="Dosis: 1 pastilla"
+                            android:textColor="#1C1B1F"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvMedFreq"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Frecuencia: C/8 horas"
                             android:textColor="#1C1B1F"
                             android:textSize="14sp" />
 
@@ -169,24 +179,86 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:cardBackgroundColor="#D3D2CC"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp">
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:padding="12dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- Encabezado de la tabla -->
+                    <LinearLayout
+                        android:id="@+id/llEncabezadoTomas"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Tabla de tomas del día"
-                        android:textColor="#666666" />
-                </FrameLayout>
+                        android:orientation="horizontal"
+                        android:paddingBottom="6dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="4dp"
+                            android:text="Nombre"
+                            android:textColor="#1C1B1F"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Tomado"
+                            android:textColor="#1C1B1F"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Pendiente"
+                            android:textColor="#1C1B1F"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Omitido"
+                            android:textColor="#1C1B1F"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#33000000" />
+
+                    <LinearLayout
+                        android:id="@+id/llTomasHoy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    <TextView
+                        android:id="@+id/tvSinTomas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingVertical="24dp"
+                        android:text="No tienes tomas programadas para hoy"
+                        android:textColor="#666666"
+                        android:textSize="13sp"
+                        android:visibility="gone" />
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <!-- Fila Inferior: Pocas Cantidades + Agregar Medicamento -->
@@ -215,35 +287,26 @@
                         android:textStyle="bold" />
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardPocas"
                         android:layout_width="match_parent"
-                        android:layout_height="110dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
                         app:cardBackgroundColor="#D3D2CC"
                         app:cardCornerRadius="16dp"
                         app:cardElevation="0dp">
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:id="@+id/llPocas"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:src="@android:drawable/stat_sys_warning"
-                                app:tint="#666666" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:gravity="center"
-                                android:text="2 pastillas\nrestantes"
-                                android:textColor="#1C1B1F"
-                                android:textSize="12sp" />
-                        </LinearLayout>
+                            android:layout_gravity="center_vertical"
+                            android:minHeight="110dp"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:padding="12dp" />
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
 
@@ -265,6 +328,7 @@
                         android:textStyle="bold" />
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardAgregar"
                         android:layout_width="match_parent"
                         android:layout_height="110dp"
                         android:layout_marginTop="8dp"
