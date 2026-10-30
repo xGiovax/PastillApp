@@ -27,6 +27,12 @@
 
 ---
 
+## Link a los Mockups
+
+- **Enlace:** https://www.figma.com/design/D5vTlqwxdwK8fbj4r0i0Yb/PastillApp?node-id=0-1&t=xw0cFLxS47X5NjxE-1
+
+---
+
 ## Características Principales
 
 - **Registro de Usuarios:** Autenticación y gestión de cuentas mediante Firebase Authentication.
