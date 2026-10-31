@@ -33,6 +33,21 @@
 
 ---
 
+## Link Para descargar la Apk directamente 
+
+- **Enlace:** https://drive.google.com/drive/folders/1JEHLZnlbkQ2iSV9C9jF9eBaUpJNocaaV?usp=sharing
+
+---
+
+## ¿Cómo probar la aplicación?
+
+- **Opcion 1** Descar la apk en el enlace de arriba
+- **Opcion 2** Clonar el repositorio y ejecutarlo conectado a un dispositivo movil con cable usb,
+ ya que se puede usar las credenciales de cualquier correo de gmail no es necesario
+ utilizar credenciales de acceso se puede ingresar con credenciales nuevas
+
+---
+
 ## Características Principales
 
 - **Registro de Usuarios:** Autenticación y gestión de cuentas mediante Firebase Authentication.
